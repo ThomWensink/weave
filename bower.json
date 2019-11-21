@@ -1,0 +1,50 @@
+{
+  "name": "thom Wensink starter-pack",
+  "homepage": "http://www.thomwensink.nl",
+  "authors": [
+    "Thom Wensink <info@thomwensink.nl>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "slick-carousel": "^1.5.9",
+    "font-awesome": "fontawesome#^4.5.0",
+    "imgLiquid": "^0.9.944",
+    "modernizr": "2.8.2"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "./assets/stylesheets/bootstrap/_variables.scss",
+        "./assets/stylesheets/bootstrap/_mixins.scss",
+        "./assets/stylesheets/bootstrap/_normalize.scss",
+        "./assets/stylesheets/bootstrap/_print.scss",
+        "./assets/stylesheets/bootstrap/_scaffolding.scss",
+        "./assets/stylesheets/bootstrap/_type.scss",
+        "./assets/stylesheets/bootstrap/_code.scss",
+        "./assets/stylesheets/bootstrap/_grid.scss",
+        "./assets/stylesheets/bootstrap/_tables.scss",
+        "./assets/stylesheets/bootstrap/_forms.scss",
+        "./assets/stylesheets/bootstrap/_component-animations.scss",
+        "./assets/stylesheets/bootstrap/_navs.scss",
+        "./assets/stylesheets/bootstrap/_navbar.scss",
+        "./assets/stylesheets/bootstrap/_utilities.scss",
+        "./assets/stylesheets/bootstrap/_responsive-utilities.scss",
+        "./assets/javascripts/bootstrap/transition.js",
+        "./assets/javascripts/bootstrap/collapse.js",
+        "./assets/javascripts/bootstrap/scrollspy.js",
+        "./assets/javascripts/bootstrap/affix.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "./scss/font-awesome.scss",
+        "./fonts/*"
+      ]
+    },
+    "modernizr": {
+      "main": "./modernizr.js"
+    }
+  }
+}
