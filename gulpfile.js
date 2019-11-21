@@ -56,7 +56,7 @@ var enabled = {
   // Enable static asset revisioning when `--production`
   rev: argv.production,
   // Disable source maps when `--production`
-  maps: !argv.production,
+  maps: false,
   // Fail styles task on error when `--production`
   failStyleTask: argv.production,
   // Fail due to JSHint warnings only when `--production`
@@ -81,7 +81,7 @@ var revManifest = path.dist + 'assets.json';
 var cssTasks = function(filename) {
   return lazypipe()
     .pipe(function() {
-      return gulpif(!enabled.failStyleTask, plumber({errorHandler: notify.onError("Error: <%= error.message %>")}));
+      return gulpif(!enabled.failStyleTask, plumber());
     })
     .pipe(function() {
       return gulpif(enabled.maps, sourcemaps.init());
@@ -175,17 +175,11 @@ gulp.task('styles', ['wiredep'], function() {
       });
     }
     merged.add(gulp.src(dep.globs, {base: 'styles'})
-      .pipe(plumber({errorHandler: onError}))
       .pipe(cssTasksInstance));
   });
   return merged
     .pipe(writeToManifest('styles'));
 });
-
-var onError = function (err) {
-  console.log(err.toString());
-  this.emit('end');
-};
 
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
@@ -216,11 +210,11 @@ gulp.task('fonts', function() {
 // `gulp images` - Run lossless compression on all the images.
 gulp.task('images', function() {
   return gulp.src(globs.images)
-    .pipe(imagemin({
+    /* .pipe(imagemin({
       progressive: true,
       interlaced: true,
       svgoPlugins: [{removeUnknownsAndDefaults: false}, {cleanupIDs: false}]
-    }))
+    }))*/
     .pipe(gulp.dest(path.dist + 'images'))
     .pipe(browserSync.stream());
 });
