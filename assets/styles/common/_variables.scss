@@ -1,32 +1,16 @@
-// Font weights
-$light: 400;
-$regular: 500;
-$bold: 700;
-$ultra_bold: 900;
 
 // Base Font
-$base-font-family: 'Roboto', Helvetica, sans-serif;
-$base-font-weight: $regular;
-$base-font-size: 16px;
-$base-line-height: 1.6;
+//$base-font-family: 'halcom';
+//$base-font-family: 'halcomtitle';
+//$title-font-family: 'halcomtitle';
+$base-font-size: 18px;
+$base-line-height: 30px;
 
 //base colors
-$color-primary: #000000;
-$color-secondary: #00934a;
+$color-primary: #13080D;
+$color-orange: #F57D20;
+$color-pink: #EE3968;
+$color-blue: #00AEC7;
 $color-white: #ffffff;
 
-//link colors
-$color-link: $color-secondary;
-$color-link-dark: darken($color-secondary, 10);
-$color-link-light: $color-white;
 
-//text colors
-$color-text: $color-primary;
-$color-text-light: lighten($color-primary, 10);
-$color-text-lightest: $color-white;
-
-//footer colors
-$footer-primary: #2b2b2b;
-$footer-secondary: #232323;
-$footer-color-link: #686969;
-$footer-color-tekst: #686969;

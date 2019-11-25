@@ -1,0 +1,209 @@
+/*
+@import url("https://use.typekit.net/alb2jus.css");
+
+@font-face {
+    font-family: 'halcomtitle';
+    src: url('../fonts/the_northern_block_ltd_-_halcom-webfont.woff2') format('woff2'),
+         url('../fonts/the_northern_block_ltd_-_halcom-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+body,html {
+    font-family: 'halcom', sans-serif;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color:$color-primary;
+}
+
+body {
+    @include transition(all .2s ease-in-out);
+    background:$color-white;
+}
+
+* {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width:100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'halcom', sans-serif;
+    color:$color-primary;
+    margin:0;
+    font-weight:500;
+}
+
+h1 {
+    font-size:70px;
+    line-height:84px;
+}
+
+h2 {
+    font-size:60px;
+    line-height:78px;
+}
+
+h3 {
+    font-size:50px;
+    line-height:70px;
+}
+
+h4 {
+    font-size:40px;
+    line-height:60px;
+}
+
+h5 {
+    font-size:30px;
+    line-height:48px;
+}
+
+h6 {
+    font-size:20px;
+    line-height:46px;
+}
+
+p {
+    font-family: 'halcom', sans-serif;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+a {
+    @include transition(all .2s ease-in-out);
+    text-decoration:none;
+    &:hover, &:focus {
+        text-decoration:none;
+    }
+}
+
+p a {
+    font-weight:bold;
+}
+
+.lozad {
+    opacity:0;
+}
+
+.fadein {
+    opacity:1 !important;
+}
+
+.fadein-hero {
+    margin:0 !important;
+    transition-delay: 0.5s;
+}
+
+.full-height {
+    height:100vh;
+    position: relative;
+    z-index: 1;
+    min-height:500px;
+    scroll-snap-align: start;
+}
+
+// Equal height flexbox
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-equal {
+    display: flex !important;
+    display: -webkit-flex !important;
+    flex-wrap: wrap !important;
+    .outer {
+        height: 100%;
+    }
+}
+
+body {
+    overflow:hidden !important;
+}
+
+.outsider {
+    max-height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    margin:0;
+    width:100%;
+    height:100%;
+    position:relative;
+    @include transition(all .2s ease-out);
+}
+
+.parallex {
+    background:$color-white;
+    max-height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    margin:0;
+    width:100%;
+    height:100%;
+    position:relative;
+    z-index:2;
+    @include transition(all .2s ease);
+}
+
+section, footer {
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow:hidden;
+}
+
+.pink {
+    background:$color-pink;
+    @include transition(all .3s ease-out);
+}
+
+.blue {
+    background:$color-blue;
+    @include transition(all .3s ease-out);
+}
+
+.orange {
+    background:$color-orange;
+    @include transition(all .3s ease-out);
+}
+
+.white {
+    background:$color-white;
+    @include transition(all .3s ease-out);
+}
+
+
+/*--------------------------------------------------------------
+# Page style
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Responsive page style
+--------------------------------------------------------------*/
+@include breakpoint(lg) {
+
+}
+
+@include breakpoint(md) {
+    .full-height {
+        min-height:auto;
+    }
+    // Global fix on container
+    .container {
+        width:100% !important;
+    }
+}
+
+@include breakpoint(sm) {
+
+}

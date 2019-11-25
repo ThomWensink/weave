@@ -11,7 +11,11 @@
     "slick-carousel": "^1.5.9",
     "font-awesome": "fontawesome#^4.5.0",
     "imgLiquid": "^0.9.944",
-    "modernizr": "2.8.2"
+    "modernizr": "2.8.2",
+    "lozad": "^1.14.0",
+    "fullpage.js": "^3.0.7",
+    "isInViewport": "^3.0.4",
+    "jquery-is-in-viewport": "^1.0.3"
   },
   "overrides": {
     "bootstrap-sass": {

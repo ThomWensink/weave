@@ -1,7 +1,79 @@
 /*--------------------------------------------------------------
 # Page style
 --------------------------------------------------------------*/
+.contact {
+    header#nav-header {
+        .logo {
+            svg {
+                path#logo-icon {
+                    fill:$color-white;
+                }
+            }
+        }
+        .navbar-default {
+            .navbar-nav {
+                li {
+                    a {
+                        color:$color-white;
+                    }
+                }
+            }
+        }
+        .navbar-toggle {
+            .icon-bar {
+                background:$color-white;
+            }
+        }
+    }
+}
 
+.over-ons {
+    overflow-y:scroll !important;
+    .logo {
+        .logo-text {
+            fill:$color-white;
+        }
+    }
+    .outsider {
+        max-height:inherit !important;
+        scroll-snap-type:none !important;
+        overflow:hidden !important;
+        &:before {
+            content:'';
+            position:fixed;
+            right:0;
+            bottom:0;
+            top:0;
+            height:810px;
+            width:1155px;
+            background-image: url(../images/gray-lines.svg);
+            background-position:center center;
+            background-repeat:no-repeat;
+            background-size:100%;
+            opacity:0.5;
+        }
+    }
+}
+
+.onze-aanpak {
+    overflow-y:scroll !important;
+    .logo {
+        .logo-text {
+            fill:$color-white;
+        }
+    }
+    .outsider {
+        max-height:inherit !important;
+        scroll-snap-type:none !important;
+        overflow:hidden !important;
+        #main-content {
+            padding-bottom:200px;
+            .content-container {
+                margin-bottom:125px;
+            }
+        }
+    }
+}
 
 /*--------------------------------------------------------------
 # Responsive page style
@@ -11,9 +83,28 @@
 }
 
 @include breakpoint(md) {
+    .over-ons {
+        .outsider {
+            &:before {
+                width:100%;
+                height: 50vh !important;
+                bottom: auto;
+                background-position: top right;
+            }
+        }
+    }
 
 }
 
 @include breakpoint(sm) {
-
+    .onze-aanpak {
+        .outsider {
+            #main-content {
+                padding-bottom:0px;
+                .content-container {
+                    margin-bottom:30px;
+                }
+            }
+        }
+    }
 }

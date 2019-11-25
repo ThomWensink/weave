@@ -17,19 +17,18 @@ use Roots\Sage\Wrapper;
 
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <?php
-      do_action('get_header');
-      get_template_part('templates/header');
+        do_action('get_header');
+        get_template_part('templates/header');
     ?>
 
     <?php include Wrapper\template_path(); ?>
 
     <?php
-      do_action('get_footer');
-      get_template_part('templates/footer');
-      wp_footer();
+        do_action('get_footer');
+        wp_footer();
     ?>
+
   </body>
 
 </html>

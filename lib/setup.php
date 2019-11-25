@@ -35,6 +35,10 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_image_size('w800', 800, 9999);
+  add_image_size('w640', 640, 9999);
+  add_image_size('w360', 360, 9999);
+
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -50,11 +54,11 @@ function setup() {
 
   // create options page
   if( function_exists('acf_add_options_page') ) {
-      acf_add_options_page();   
+      acf_add_options_page();
   }
 
   if( function_exists('acf_add_options_sub_page') ) {
-    acf_add_options_sub_page('Sub option'); 
+    acf_add_options_sub_page('Sub option');
   }
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
@@ -109,8 +113,11 @@ function assets() {
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
-
+  // Call js for timeline
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_enqueue_script('sage/modernizr', Assets\asset_path('scripts/modernizr.js'), ['sage/js'], null, true);
+
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+

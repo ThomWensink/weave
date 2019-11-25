@@ -1,7 +1,64 @@
 /*--------------------------------------------------------------
 # Footer style
 --------------------------------------------------------------*/
-
+footer {
+    height:100vh;
+    background:$color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    scroll-snap-align: start!important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    .text-box {
+        position:absolute;
+        bottom:50%;
+        margin-bottom:-100px;
+        height:200px;
+        h2 {
+            color:$color-white;
+            a {
+                color:$color-pink;
+                position:relative;
+                &:hover, &:focus {
+                    &:after {
+                        opacity:1;
+                        @include transition(all .2s ease);
+                    }
+                }
+                &:after {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 3px;
+                    bottom: -5px;
+                    left: 0;
+                    opacity: .25;
+                    background:$color-pink;
+                    height:8px;
+                    @include transition(all .2s ease);
+                }
+            }
+        }
+    }
+    .address {
+        position:absolute;
+        left:60px;
+        bottom:60px;
+        color:$color-white;
+        p {
+            margin:0;
+        }
+    }
+    #linkedin {
+        position:absolute;
+        right:60px;
+        bottom:60px;
+    }
+}
 
 /*--------------------------------------------------------------
 # Responsive footer style
@@ -11,7 +68,26 @@
 }
 
 @include breakpoint(md) {
-
+    footer {
+        .text-box {
+            left:15px;
+            h2 {
+                font-size:40px;
+                line-height:52px;
+            }
+            a {
+                display:inline-block;
+            }
+        }
+        .address {
+            left:15px;
+            bottom:30px;
+        }
+        #linkedin {
+            right:15px;
+            bottom:30px;
+        }
+    }
 }
 
 @include breakpoint(sm) {

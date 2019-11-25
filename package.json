@@ -46,6 +46,7 @@
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.8",
     "imagemin-pngcrush": "^4.1.0",
     "jshint-stylish": "^2.0.1",
     "lazypipe": "^1.0.1",
@@ -54,5 +55,6 @@
     "run-sequence": "^1.1.2",
     "traverse": "^0.6.6",
     "wiredep": "^2.2.2"
-  }
+  },
+  "dependencies": {}
 }
