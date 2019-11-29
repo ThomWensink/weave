@@ -24,7 +24,15 @@
                 $( ".logo" ).toggleClass( "white-logo" );
             });
             $( ".navbar-default" ).addClass( "fadein" );
-
+            $(window).on('scroll', function() {
+                scrollPosition = $(this).scrollTop();
+                if (scrollPosition >= 175) {
+                    $( ".logo" ).addClass( "smaller" );
+                }
+                else {
+                    $( ".logo" ).removeClass( "smaller" );
+                }
+            });
             // LazyLoad
             // lazy loads elements with default selector: `.lozad`
             const observer = lozad('.lozad', {
@@ -51,46 +59,67 @@
     // Home page
     'home': {
         init: function() {
-            // Used for whether element is visible in viewport
-            function isOnScreen(e){if(0!=e.length){var n=jQuery(window),r=n.scrollTop(),t=n.height(),i=r+t,o=jQuery(e),h=o.offset().top,f=o.height(),u=h+f;return h>=r&&h<i||u>r&&u<=i||f>t&&h<=r&&u>=i}}
-
-            $( window ).scroll(function() {
-
-            });
-
             $( "#hero" ).addClass( "fadein-hero" );
 
             // Hero fadeins
             $( "#hero h1 span.static" ).addClass( "fadein" );
-            setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change" ); }  , 3000 );
+            $( "#hero h1 span.static" ).addClass( "color-change-orange" );
+            setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-orange" ); }  , 3500 );
+            setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-pink" ); }  , 3500 );
+            setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-pink" ); }  , 7500 );
+            setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-orange" ); }  , 7500 );
 
-            setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadein" ); }  , 500 );
-            setTimeout( function(){$( "#hero h1 span.first" ).removeClass( "fadein" ); }  , 4000 );
-            setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadeout" ); }  , 4000 );
+            setInterval(function(){loop()}, 8000);
+            function loop(){
+                setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-orange" ); }  , 3300 );
+                setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-pink" ); }  , 3300 );
+                setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-pink" ); }  , 7300 );
+                setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-orange" ); }  , 7300 );
+            }
 
-            setTimeout( function(){$( "#hero h1 span.second" ).addClass( "fadein" ); }  , 4500 );
-            setTimeout( function(){$( "#hero h1 span.second" ).removeClass( "fadein" ); }  , 8000 );
-            setTimeout( function(){$( "#hero h1 span.second" ).addClass( "fadeout" ); }  , 8000 );
+            setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadein" ); }  , 300 );
+            setTimeout( function(){$( "#hero h1 span.first" ).removeClass( "fadein" ); }  , 4300 );
+            setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadeout" ); }  , 4300 );
+            setTimeout( function(){$( "#hero h1 span.first" ).removeClass( "fadeout" ); }  , 4800 );
 
-            setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change" ); }  , 7000 );
-            setTimeout( function(){$( "#hero h1 span.third" ).addClass( "fadein" ); }  , 8500 );
+
+            setTimeout( function(){$( "#hero h1 span.second" ).addClass( "fadein" ); }  , 4300 );
+            setTimeout( function(){$( "#hero h1 span.second" ).removeClass( "fadein" ); }  , 8300 );
+            setTimeout( function(){$( "#hero h1 span.second" ).addClass( "fadeout" ); }  , 8300 );
+            setTimeout( function(){$( "#hero h1 span.second" ).removeClass( "fadeout" ); }  , 8800 );
+
+
+            setTimeout( function(){$( "#hero h1 span.third" ).addClass( "fadein" ); }  , 8300 );
+            setTimeout( function(){$( "#hero h1 span.third" ).removeClass( "fadein" ); }  , 12300 );
+            setTimeout( function(){$( "#hero h1 span.third" ).addClass( "fadeout" ); }  , 12300 );
+            setTimeout( function(){$( "#hero h1 span.third" ).removeClass( "fadeout" ); }  , 12800 );
+
+            setInterval(function(){loopsecond()}, 12000);
+
+            function loopsecond(){
+                setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadein" ); }  , 300 );
+                setTimeout( function(){$( "#hero h1 span.first" ).removeClass( "fadein" ); }  , 4300 );
+                setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadeout" ); }  , 4300 );
+                setTimeout( function(){$( "#hero h1 span.first" ).removeClass( "fadeout" ); }  , 4800 );
+
+
+                setTimeout( function(){$( "#hero h1 span.second" ).addClass( "fadein" ); }  , 4300 );
+                setTimeout( function(){$( "#hero h1 span.second" ).removeClass( "fadein" ); }  , 8300 );
+                setTimeout( function(){$( "#hero h1 span.second" ).addClass( "fadeout" ); }  , 8300 );
+                setTimeout( function(){$( "#hero h1 span.second" ).removeClass( "fadeout" ); }  , 8800 );
+
+
+                setTimeout( function(){$( "#hero h1 span.third" ).addClass( "fadein" ); }  , 8300 );
+                setTimeout( function(){$( "#hero h1 span.third" ).removeClass( "fadein" ); }  , 12300 );
+                setTimeout( function(){$( "#hero h1 span.third" ).addClass( "fadeout" ); }  , 12300 );
+                setTimeout( function(){$( "#hero h1 span.third" ).removeClass( "fadeout" ); }  , 12800 );
+            }
+
+
+
+
 
             // Full page scrolling
-            /*
-            jQuery(function($) {
-
-                var $win = $('.outsider');
-                var winA = $win.height();   // Get the window height.
-
-                $win.on("scroll", function () {
-
-                }).on("resize", function(){ // If the user resizes the window
-                    winH = $(this).height(); // you'll need the new height value
-                });
-
-            });
-
-            */
             var $win = $('.outsider');
 
             $win.scroll(function () {
@@ -193,18 +222,15 @@
         init: function() {
             $( ".outsider" ).addClass( "pink" );
             $( ".logo" ).addClass( "white" );
-            $( ".logo" ).addClass( "smaller" );
             $( ".maintitle" ).addClass( "active-titel" );
             $( "#main-content p:first-of-type" ).addClass( "active-text" );
             $( ".navbar-default" ).addClass( "white" );
+            $( ".navbar-toggle" ).addClass( "white" );
 
-            $('#main-content .maintitle').isInViewport(function (status) {
+            $('#title-hero .maintitle').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
-                }
-                else {
-
                 }
             })
 
@@ -224,22 +250,18 @@
                     $( ".outsider" ).addClass( "orange" );
                     $( ".logo" ).addClass( "white" );
                     $( ".navbar-default" ).addClass( "white" );
-                }
-                else {
-
+                    $( ".navbar-toggle" ).addClass( "white" );
                 }
             })
 
-            $('#team .title').isInViewport(function (status) {
+            $('#team ul .teammember .teammember-title').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "white" );
                     $( ".logo" ).removeClass( "white" );
                     $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
                     $( ".logo" ).addClass( "smaller" );
-                }
-                else {
-
                 }
             })
 
@@ -247,10 +269,8 @@
                 if (status ==='entered') {
                     $( ".logo" ).removeClass( "white" );
                     $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
                     $( ".logo" ).addClass( "smaller" );
-                }
-                else {
-
                 }
             })
 
@@ -258,9 +278,7 @@
                 if (status ==='entered') {
                     $( ".logo" ).removeClass( "smaller" );
                     $( ".navbar-default" ).addClass( "white" );
-                }
-                else {
-
+                    $( ".navbar-toggle" ).addClass( "white" );
                 }
             })
         },
@@ -272,22 +290,23 @@
         init: function() {
             $( ".outsider" ).addClass( "orange" );
             $( ".logo" ).addClass( "white" );
-            $( ".logo" ).addClass( "smaller" );
             $( ".maintitle" ).addClass( "active-titel" );
             $( "#main-content p:first-of-type" ).addClass( "active-text" );
             $( ".navbar-default" ).addClass( "white" );
+            $( ".navbar-toggle" ).addClass( "white" );
 
-            $('#main-content .maintitle').isInViewport(function (status) {
+            $('#title-hero .maintitle').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "pink" );
                     $( ".outsider" ).addClass( "orange" );
                     $( ".big-title-text" ).removeClass( "animation" );
                 }
-                else {
-
-                }
             })
 
+            var image = document.getElementsByClassName('floating-image');
+            new simpleParallax(image);
+
+            /*
             $('#main-content .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".image-1" ).addClass( "active-image" );
@@ -298,15 +317,17 @@
                     $( ".image-2" ).removeClass( "active-image-two" );
                 }
             })
+            */
 
-            $('#big-title .big-title-text').isInViewport(function (status) {
+            $('#big-title .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
                     setTimeout( function(){$( ".big-title-text" ).addClass( "animation" ); }  , 1000 );
                 }
                 else {
-
+                    $( ".outsider" ).removeClass( "pink" );
+                    $( ".outsider" ).addClass( "orange" );
                 }
             })
 
@@ -314,11 +335,108 @@
                 if (status ==='entered') {
                     $( ".logo" ).removeClass( "smaller" );
                     $( ".navbar-default" ).addClass( "white" );
-                }
-                else {
-
+                    $( ".navbar-toggle" ).addClass( "white" );
                 }
             })
+        },
+        finalize: function() {
+
+        }
+    },
+    'single_cases': {
+        init: function() {
+            $( ".logo" ).addClass( "white" );
+            $( ".navbar-default" ).addClass( "white" );
+            $( ".navbar-toggle" ).addClass( "white" );
+            $( ".maintitle" ).addClass( "active-titel" );
+            $( ".breadcrumb" ).addClass( "active-titel" );
+
+            $('#case-detail-hero .checker').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).addClass( "white" );
+                    $( ".navbar-default" ).addClass( "white" );
+                    $( ".navbar-toggle" ).addClass( "white" );
+                }
+            })
+
+            $('#intro-case-detail .checker, #content-image-left .title, #content-image-right .title').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).removeClass( "white" );
+                    $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
+                }
+            })
+
+            $('#slider .checker').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).addClass( "white" );
+                    $( ".navbar-default" ).addClass( "white" );
+                    $( ".navbar-toggle" ).addClass( "white" );
+                }
+            })
+
+            $('#video').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).removeClass( "white" );
+                    $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
+                }
+            })
+
+            $('footer .address').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).removeClass( "smaller" );
+                    $( ".navbar-default" ).addClass( "white" );
+                    $( ".navbar-toggle" ).addClass( "white" );
+                }
+                else {
+                    $( ".logo" ).removeClass( "white" );
+                    $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
+                }
+            })
+        },
+        finalize: function() {
+            $('.slider').slick({
+                dots: false,
+                arrows: true,
+                nextArrow: "<img class='a-left control-c next slick-arrow slick-next' src='https://peoplemarketing.nl/arrow-next.svg'>",
+                prevArrow: "<img class='a-left control-c prev slick-arrow slick-prev' src='https://peoplemarketing.nl/arrow-previous.svg'>",
+                infinite: true,
+                autoplay: true,
+                draggable: true,
+                accessibility: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplaySpeed: 12000,
+                centerMode: true,
+                centerPadding: '20%',
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      centerPadding: '0px',
+                    }
+                  }
+                ]
+            });
+        }
+    },
+    'cases': {
+        init: function() {
+            $( ".maintitle" ).addClass( "active-titel" );
+            $( "#case-intro p:first-of-type" ).addClass( "active-text" );
+            $( ".first" ).addClass( "active-first" );
+        },
+        finalize: function() {
+
+        }
+    },
+    'error404': {
+        init: function() {
+            $( ".logo" ).addClass( "white" );
+            $( ".navbar-default" ).addClass( "white" );
+            $( ".navbar-toggle" ).addClass( "white" );
         },
         finalize: function() {
 

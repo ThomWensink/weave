@@ -24,8 +24,8 @@
         <div class="intro-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <p>Weave ontwikkelt innovatieve technologie, waarmee opdrachtgevers impact maken in hun vakgebied. We zijn een energiek team van developers en designers. Een nieuwe generatie softwareontwikkelaars die bewijst dat je met een rebelse spirit écht verschil kan maken.</p>
+                    <div class="col-xs-12 col-md-push-1 col-md-11">
+                        <?php the_field('intro_sectie'); ?>
                     </div>
                 </div>
             </div>
@@ -74,28 +74,34 @@
         </div>
     </section>
 
+
+    <?php
+    $post_object = get_field('uitgelichte_case');
+    if( $post_object ):
+    // override $post
+    $post = $post_object;
+    setup_postdata( $post );
+    ?>
     <section id="case-overview" class="full-height">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <div class="text-box">
-                        <h6>Niki Sie, Juuve</h6>
+                        <h6><?php the_title(); ?></h6>
                         <div class="intern-text-box">
-                            <p>Morbi condimentum magna eget risus sollicitudin, sit consectetur sapien aus. Aenean nec massa dapibus tortor.</p>
-                            <a href="">Bekijk case</a>
+                            <?php the_content() ?>
+                            <a href="<?php the_permalink(); ?>">Bekijk case</a>
                         </div>
                     </div>
                 </div>
-                <?php
-                $techimage = get_field('afbeelding_wij_geloven_in_tech');
-                if( !empty( $image ) ): ?>
-                    <div class="image-box">
-                        <img class="floating-image" src="<?php echo esc_url($techimage['url']); ?>" alt="<?php echo esc_attr($techimage['alt']); ?>" />
-                    </div>
-                <?php endif; ?>
+                <div class="image-box">
+                    <?php the_post_thumbnail( 'full' ); ?>
+                </div>
             </div>
         </div>
     </section>
+    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+    <?php endif; ?>
 
     <section id="cta" class="full-height">
         <div class="container">

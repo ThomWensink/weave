@@ -5,13 +5,20 @@
 ?>
 <div class="outsider">
 
+    <section id="title-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-md-push-1">
+                    <h1 class="maintitle"><?php the_field('main_titel'); ?></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="main-content">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-10 col-md-push-1">
-                    <div class="title-container">
-                        <h1 class="maintitle"><?php the_field('main_titel'); ?></h1>
-                    </div>
                     <div class="content-container">
                         <?php the_field('main_content'); ?>
                     </div>
@@ -33,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-4 col-md-pull-6">
+                        <div class="col-xs-12 col-md-5 col-md-pull-7">
                             <?php
                             $techimage = get_field('extra_info_afbeelding');
                             if( !empty( $techimage ) ): ?>
@@ -73,8 +80,7 @@
                         <?php } ?>
                         <li class="col-xs-12 col-sm-6 col-md-4 full">
                             <div class="outer">
-                                <a href="https://weave.homerun.co/" target="_blank"></a>
-                                <span>Bekijk vacatures</span>
+                                <a href="https://weave.homerun.co/" target="_blank"><span>Bekijk vacatures</span></a>
                             </div>
                         </li>
                     <?php } ?>

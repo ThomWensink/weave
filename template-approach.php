@@ -5,13 +5,20 @@
 ?>
 <div class="outsider">
 
+    <section id="title-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-md-push-1">
+                    <h1 class="maintitle"><?php the_field('main_titel'); ?></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="main-content">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-10 col-md-push-1">
-                    <div class="title-container">
-                        <h1 class="maintitle"><?php the_field('main_titel'); ?></h1>
-                    </div>
                     <div class="content-container">
                         <?php the_field('main_content'); ?>
                     </div>
@@ -54,6 +61,7 @@
                 </div>
             </div>
         </div>
+        <div class="checker"></div>
     </section>
 
     <?php get_template_part('templates/footer'); ?>

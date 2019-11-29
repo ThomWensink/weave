@@ -1,7 +1,12 @@
-<?php get_template_part('templates/page', 'header'); ?>
-
-<div class="alert alert-warning">
-  <?php _e('Sorry, but the page you were trying to view does not exist.', 'sage'); ?>
+<div class="outsider">
+    <section id="four-o-four">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>Niet gevonden</h2>
+                </div>
+            </div>
+        </div>
+        <a href="<?php bloginfo('url'); ?>">Terug naar home</a>
+    </section>
 </div>
-
-<?php get_search_form(); ?>
