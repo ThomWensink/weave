@@ -96,7 +96,7 @@ header#nav-header {
                 &.active, &:hover, &:focus {
                     a {
                         background:transparent;
-                        opacity:0.5;
+                        opacity:0.75;
                     }
                 }
             }
@@ -185,6 +185,7 @@ header#nav-header {
                 transform-origin: 10% 10%;
                 right:-7px;
                 width:26px !important;
+                margin-top:2px;
             }
             .middle-bar {
                 opacity: 0;
@@ -194,6 +195,7 @@ header#nav-header {
                 transform-origin: 10% 90%;
                 right:-7px;
                 width:26px !important;
+                margin-top:2px;
             }
             .icon-bar {
                 background:$color-white;

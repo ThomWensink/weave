@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-md-push-1">
                     <h2 class="title">Een team van 20 developers &amp; designers</h2>
-                    <a href="https://weave.homerun.co/" target="_blank">Bekijk vacatures</a>
+                    <a href="https://weave.homerun.co/" class="vacatures" target="_blank">Bekijk vacatures</a>
                 </div>
             </div>
             <div class="row">

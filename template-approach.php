@@ -42,7 +42,7 @@
                         <?php
                         $techimage2 = get_field('image_2');
                         if( !empty( $techimage2 ) ): ?>
-                            <div class="image-box">
+                            <div class="image-box image-box-second">
                                 <img class="floating-image" src="<?php echo esc_url($techimage2['url']); ?>" alt="<?php echo esc_attr($techimage2['alt']); ?>" />
                             </div>
                         <?php endif; ?>

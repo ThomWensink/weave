@@ -254,7 +254,7 @@
                 }
             })
 
-            $('#team ul .teammember .teammember-title').isInViewport(function (status) {
+            $('#team .vacatures').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "white" );
@@ -303,10 +303,6 @@
                 }
             })
 
-            var image = document.getElementsByClassName('floating-image');
-            new simpleParallax(image);
-
-            /*
             $('#main-content .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".image-1" ).addClass( "active-image" );
@@ -317,13 +313,12 @@
                     $( ".image-2" ).removeClass( "active-image-two" );
                 }
             })
-            */
 
             $('#big-title .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
-                    setTimeout( function(){$( ".big-title-text" ).addClass( "animation" ); }  , 1000 );
+                    //setTimeout( function(){$( ".big-title-text" ).addClass( "animation" ); }  , 1000 );
                 }
                 else {
                     $( ".outsider" ).removeClass( "pink" );
@@ -426,7 +421,7 @@
         init: function() {
             $( ".maintitle" ).addClass( "active-titel" );
             $( "#case-intro p:first-of-type" ).addClass( "active-text" );
-            $( ".first" ).addClass( "active-first" );
+            $( "#cases ul li" ).addClass( "active-first" );
         },
         finalize: function() {
 

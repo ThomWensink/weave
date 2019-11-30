@@ -133,7 +133,7 @@
         #main-content {
             .content-container {
                 img {
-                    height:400px;
+                    height:300px;
                     object-fit:cover;
                 }
             }
@@ -147,9 +147,14 @@
                     margin-bottom:30px;
                 }
                 .image-box {
+                    width:calc(100% + 15px);
                     img {
-                        margin: 30px -15px;
-                        border-radius:10px !important;
+                        margin: 30px -15px !important;
+                        border-top-left-radius:10px !important;
+                        border-bottom-left-radius:10px !important;
+                        border-top-right-radius:0 !important;
+                        border-bottom-right-radius:0 !important;
+                        height:400px;
                     }
                 }
             }
