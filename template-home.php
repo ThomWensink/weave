@@ -24,7 +24,7 @@
         <div class="intro-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-push-1 col-md-11">
+                    <div class="col-xs-12 col-md-push-1 col-md-10">
                         <?php the_field('intro_sectie'); ?>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         <div class="logos">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 col-md-push-1 col-md-10">
                         <ul>
                         <?php while( have_rows('logos') ): the_row();
                             $image = get_sub_field('afbeelding');
@@ -61,7 +61,7 @@
                         <img class="floating-image" src="<?php echo esc_url($techimage['url']); ?>" alt="<?php echo esc_attr($techimage['alt']); ?>" />
                     </div>
                 <?php endif; ?>
-                <div class="col-xs-12 col-md-9 col-md-push-3">
+                <div class="col-xs-12 col-md-7 col-md-push-4">
                     <div class="text-box">
                         <h2><?php the_field('titel_wij_geloven_in_tech'); ?></h2>
                         <div class="intern-text-box">
@@ -85,9 +85,9 @@
     <section id="case-overview" class="full-height">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-md-6">
+                <div class="col-xs-12 col-md-push-1 col-md-5">
                     <div class="text-box">
-                        <h6><?php the_title(); ?></h6>
+                        <h6><?php the_field('klantnaam'); ?></h6>
                         <div class="intern-text-box">
                             <?php the_content() ?>
                             <a href="<?php the_permalink(); ?>">Bekijk case</a>

@@ -24,19 +24,24 @@
                                 <h1 class="maintitle"><?php the_field('titel'); ?></h1>
                             </div>
                         </div>
+                        <?php
+                        $imageheromobile = get_field('hero_afbeelding_mobile');
+                        if( !empty( $imageheromobile ) ): ?>
+                            <div class="image-box-mobile hidden-md hidden-lg">
+                                <img class="floating-image" src="<?php echo esc_url($imageheromobile['url']); ?>" alt="<?php echo esc_attr($imageheromobile['alt']); ?>" />
+                            </div>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="col-xs-12 col-md-5 col-md-push-1">
-                    <?php
-                    $imagehero = get_field('hero_afbeelding');
-                    if( !empty( $imagehero ) ): ?>
-                        <div class="image-box">
-                            <img class="floating-image" src="<?php echo esc_url($imagehero['url']); ?>" alt="<?php echo esc_attr($imagehero['alt']); ?>" />
-                        </div>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
+        <?php
+        $imagehero = get_field('hero_afbeelding');
+        if( !empty( $imagehero ) ): ?>
+            <div class="image-box hidden-xs hidden-sm">
+                <img class="floating-image" src="<?php echo esc_url($imagehero['url']); ?>" alt="<?php echo esc_attr($imagehero['alt']); ?>" />
+            </div>
+        <?php endif; ?>
     </section>
 
     <section id="intro-case-detail">
@@ -84,6 +89,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="checker"></div>
                 </section>
 
             <?php elseif( get_row_layout() == 'full_width' ): ?>
@@ -127,6 +133,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="checker"></div>
                 </section>
 
             <?php elseif( get_row_layout() == 'slider' ): ?>
@@ -270,24 +277,25 @@
 
                             ?>
                             <div class="outer-container" style="background-color:<?php the_field('achtergrondkleur'); ?>">
-                                <div class="row row-equal">
-                                    <div class="col-xs-12 col-md-6 col-md-push-6">
-                                        <?php
-                                        $imagesmallhero = get_field('uitgelichte_foto');
-                                        if( !empty( $imagesmallhero ) ): ?>
-                                            <div class="image-box">
-                                                <img class="floating-image" src="<?php echo esc_url($imagesmallhero['url']); ?>" alt="<?php echo esc_attr($imagesmallhero['alt']); ?>" />
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="col-xs-12 col-md-6 col-md-pull-6">
-                                        <div class="outer">
-                                            <div class="text-box">
-                                                <h6 class="subtitle"><?php the_title(); ?></h6>
-                                                <h4 class="casetitle"><?php the_field('titel'); ?></h4>
-                                                <a href="<?php the_permalink(); ?>">Bekijk case</a>
-                                            </div>
+                                <div class="outer">
+                                    <?php
+                                    $imagehero = get_field('uitgelichte_foto');
+                                    if( !empty( $imagehero ) ): ?>
+                                        <div class="image-box hidden-xs hidden-sm">
+                                            <img class="floating-image" src="<?php echo esc_url($imagehero['url']); ?>" alt="<?php echo esc_attr($imagehero['alt']); ?>" />
                                         </div>
+                                    <?php endif; ?>
+                                    <?php
+                                    $imageheromobile = get_field('uitgelichte_foto_mobile');
+                                    if( !empty( $imageheromobile ) ): ?>
+                                        <div class="image-box hidden-md hidden-lg">
+                                            <img class="floating-image" src="<?php echo esc_url($imageheromobile['url']); ?>" alt="<?php echo esc_attr($imageheromobile['alt']); ?>" />
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="text-box">
+                                        <h6 class="subtitle"><?php the_title(); ?></h6>
+                                        <h4 class="casetitle"><?php the_field('titel'); ?></h4>
+                                        <a href="<?php the_permalink(); ?>"><span>Bekijk case</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -306,24 +314,25 @@
                     ?>
                     <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); // run the loop ?>
                     <div class="outer-container" style="background-color:<?php the_field('achtergrondkleur'); ?>">
-                        <div class="row row-equal">
-                            <div class="col-xs-12 col-md-6 col-md-push-6">
-                                <?php
-                                $imagesmallhero = get_field('uitgelichte_foto');
-                                if( !empty( $imagesmallhero ) ): ?>
-                                    <div class="image-box">
-                                        <img class="floating-image" src="<?php echo esc_url($imagesmallhero['url']); ?>" alt="<?php echo esc_attr($imagesmallhero['alt']); ?>" />
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                            <div class="col-xs-12 col-md-6 col-md-pull-6">
-                                <div class="outer">
-                                    <div class="text-box">
-                                        <h6 class="subtitle"><?php the_title(); ?></h6>
-                                        <h4 class="casetitle"><?php the_field('titel'); ?></h4>
-                                        <a href="<?php the_permalink(); ?>">Bekijk case</a>
-                                    </div>
+                        <div class="outer">
+                            <?php
+                            $imagehero = get_field('uitgelichte_foto');
+                            if( !empty( $imagehero ) ): ?>
+                                <div class="image-box hidden-xs hidden-sm">
+                                    <img class="floating-image" src="<?php echo esc_url($imagehero['url']); ?>" alt="<?php echo esc_attr($imagehero['alt']); ?>" />
                                 </div>
+                            <?php endif; ?>
+                            <?php
+                            $imageheromobile = get_field('uitgelichte_foto_mobile');
+                            if( !empty( $imageheromobile ) ): ?>
+                                <div class="image-box hidden-md hidden-lg">
+                                    <img class="floating-image" src="<?php echo esc_url($imageheromobile['url']); ?>" alt="<?php echo esc_attr($imageheromobile['alt']); ?>" />
+                                </div>
+                            <?php endif; ?>
+                            <div class="text-box">
+                                <h6 class="subtitle"><?php the_title(); ?></h6>
+                                <h4 class="casetitle"><?php the_field('titel'); ?></h4>
+                                <a href="<?php the_permalink(); ?>"><span>Bekijk case</span></a>
                             </div>
                         </div>
                     </div>

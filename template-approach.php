@@ -8,7 +8,7 @@
     <section id="title-hero">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-md-8 col-md-push-1">
+                <div class="col-xs-12 col-md-10 col-md-push-1">
                     <h1 class="maintitle"><?php the_field('main_titel'); ?></h1>
                 </div>
             </div>
@@ -53,10 +53,10 @@
     </section>
 
     <section id="big-title">
-        <h2 class="big-title-text"><?php the_field('extra_content_titel'); ?></h2>
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-md-push-2">
+                    <h2 class="big-title-text"><?php the_field('extra_content_titel'); ?></h2>
                     <?php the_field('extra_content_tekst'); ?>
                 </div>
             </div>

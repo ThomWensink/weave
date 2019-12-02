@@ -2,7 +2,7 @@
 # Page style
 --------------------------------------------------------------*/
 .home {
-    overflow:hidden !important;
+    overflow:hidden;
     .outsider {
         max-height: 100vh;
         overflow-y: scroll;
@@ -12,10 +12,6 @@
 
 
 .contact {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
     header#nav-header {
         .logo {
             svg {
@@ -52,6 +48,25 @@
         max-height:inherit !important;
         scroll-snap-type:none !important;
         overflow:hidden !important;
+    }
+    #main-content {
+        .content-container {
+            img {
+                margin:224px 0 200px;
+            }
+        }
+    }
+    #team {
+        &:before {
+            opacity:0;
+        }
+    }
+    .white {
+        #team {
+            &:before {
+                opacity:1;
+            }
+        }
     }
 }
 
@@ -121,6 +136,14 @@
 }
 
 @include breakpoint(md) {
+    .home {
+        overflow-y: scroll!important;
+        .outsider {
+            max-height:inherit !important;
+            scroll-snap-type:none !important;
+            overflow:hidden !important;
+        }
+    }
     .over-ons {
         .outsider {
             &:before {
@@ -160,9 +183,23 @@
             }
         }
     }
-
+    .contact {
+        padding-bottom:1px;
+        background:$color-primary;
+    }
 }
 
 @include breakpoint(sm) {
 
+}
+
+@media only screen and (min-device-width : 768px)  and (max-device-width : 1024px)  and (orientation : landscape) {
+    .home {
+        overflow-y: scroll!important;
+        .outsider {
+            max-height:inherit !important;
+            scroll-snap-type:none !important;
+            overflow:hidden !important;
+        }
+    }
 }

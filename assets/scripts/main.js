@@ -29,10 +29,25 @@
                 if (scrollPosition >= 175) {
                     $( ".logo" ).addClass( "smaller" );
                 }
-                else {
+            });
+
+            $(window).on('scroll', function() {
+                scrollPosition = $(this).scrollTop();
+                if (scrollPosition <= 175) {
                     $( ".logo" ).removeClass( "smaller" );
                 }
+                else {
+
+                }
             });
+
+            $('footer .text-link').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).removeClass( "smaller" );
+                    $( ".navbar-default" ).addClass( "white" );
+                    $( ".navbar-toggle" ).addClass( "white" );
+                }
+            })
             // LazyLoad
             // lazy loads elements with default selector: `.lozad`
             const observer = lozad('.lozad', {
@@ -117,101 +132,141 @@
 
 
 
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
+            jQuery(document).ready(function($){
+                if(!isMobile) {
+                    // DESKTOP
 
-            // Full page scrolling
-            var $win = $('.outsider');
+                    // Full page scrolling
+                    var $win = $('.outsider');
 
-            $win.scroll(function () {
-                if ($win.scrollTop() == 0) {
-                    $( "#intro" ).removeClass( "active-intro" );
-                    $( "#hero" ).removeClass( "inactive-hero" );
-                    console.log("top!");
+                    $win.scroll(function () {
+                        if ($win.scrollTop() == 0) {
+                            $( "#intro" ).removeClass( "active-intro" );
+                            $( "#hero" ).removeClass( "inactive-hero" );
+                            $( ".logo" ).removeClass( "white" );
+                            $( ".logo" ).removeClass( "smaller" );
+                            $( ".navbar-toggle" ).removeClass( "white" );
+                            $( ".navbar-default" ).removeClass( "white" );
+                        }
+                        else {
+                            $( "#intro" ).addClass( "active-intro" );
+                            $( "#hero" ).addClass( "inactive-hero" );
+                            $( ".outsider" ).addClass( "pink" );
+                            $( ".logo" ).addClass( "white" );
+                            $( ".navbar-toggle" ).addClass( "white" );
+                            $( ".navbar-default" ).addClass( "white" );
+                            $( ".logo" ).addClass( "smaller" );
+                        }
+                    });
+
+                    jQuery(function($) {
+
+                        var $win = $('.outsider');
+                        var winA = $win.height();   // Get the window height.
+
+                        $win.on("scroll", function () {
+                            if ($(this).scrollTop() > winA ) {
+                                $( ".outsider" ).removeClass( "blue" );
+
+                            }
+                            else if ($(this).scrollTop() < winA ) {
+                                //$( ".outsider" ).removeClass( "pink" );
+                            }
+                        }).on("resize", function(){ // If the user resizes the window
+                            winH = $(this).height(); // you'll need the new height value
+                        });
+
+                    });
+
+                    jQuery(function($) {
+
+                        var $win = $('.outsider');
+                        var winB = $win.height() + $win.height();   // Get the window height.
+
+                        $win.on("scroll", function () {
+                            if ($(this).scrollTop() > winB ) {
+                                $( ".outsider" ).addClass( "blue" );
+                                $( ".logo" ).addClass( "white" );
+                                $( ".navbar-toggle" ).addClass( "white" );
+                                $( ".navbar-default" ).addClass( "white" );
+                                $( ".outsider" ).removeClass( "orange" );
+                            }
+                        }).on("resize", function(){ // If the user resizes the window
+                            winH = $(this).height(); // you'll need the new height value
+                        });
+
+                    });
+
+                    jQuery(function($) {
+
+                        var $win = $('.outsider');
+                        var winB = $win.height() + $win.height() + $win.height() ;   // Get the window height.
+
+                        $win.on("scroll", function () {
+                            if ($(this).scrollTop() > winB ) {
+                                $( ".outsider" ).addClass( "orange" );
+                            }
+                        }).on("resize", function(){ // If the user resizes the window
+                            winH = $(this).height(); // you'll need the new height value
+                        });
+
+                    });
+
+                    // DESKTOP END
                 }
                 else {
-                    $( "#intro" ).addClass( "active-intro" );
-                    $( "#hero" ).addClass( "inactive-hero" );
+                    // MOBILE
+
+                    $('#intro .intro-content p').isInViewport(function (status) {
+                        if (status ==='entered') {
+                            $( ".outsider" ).addClass( "pink" );
+                        }
+                    })
+
+                    $('#hero h1').isInViewport(function (status) {
+                        if (status ==='entered') {
+                            $( ".logo" ).removeClass( "white" );
+                            $( ".logo" ).removeClass( "smaller" );
+                            $( ".navbar-toggle" ).removeClass( "white" );
+                            $( ".navbar-default" ).removeClass( "white" );
+                        }
+                    })
+
+                    $('#intro .logos').isInViewport(function (status) {
+                        if (status ==='entered') {
+                            $( ".logo" ).addClass( "white" );
+                            $( ".logo" ).addClass( "smaller" );
+                            $( ".navbar-toggle" ).addClass( "white" );
+                            $( ".navbar-default" ).addClass( "white" );
+                        }
+                    })
+
+                    $('#info .floating-image').isInViewport(function (status) {
+                        if (status ==='entered') {
+                            $( ".outsider" ).addClass( "pink" );
+                            $( ".outsider" ).removeClass( "blue" );
+                        }
+                    })
+
+                    $('#case-overview h6').isInViewport(function (status) {
+                        if (status ==='entered') {
+                            $( ".outsider" ).addClass( "blue" );
+                            $( ".outsider" ).removeClass( "orange" );
+                        }
+                    })
+
+                    $('#cta a').isInViewport(function (status) {
+                        if (status ==='entered') {
+                            $( ".outsider" ).addClass( "orange" );
+                        }
+                    })
+
+                    // MOBILE END
                 }
             });
 
-            jQuery(function($) {
-
-                var $win = $('.outsider');
-                var winA = $win.height();   // Get the window height.
-
-                $win.on("scroll", function () {
-                    if ($(this).scrollTop() > winA ) {
-                        console.log("eerste!");
-                        $( ".outsider" ).addClass( "pink" );
-                        $( ".logo" ).addClass( "white" );
-                        $( ".navbar-toggle" ).addClass( "white" );
-                        $( ".navbar-default" ).addClass( "white" );
-                        $( ".outsider" ).removeClass( "blue" );
-                        $( "#intro" ).addClass( "full-width" );
-                        $( ".logos" ).addClass( "remove" );
-                        $( ".logos ul li" ).removeClass( "active-li" );
-                        $( ".logo" ).addClass( "smaller" );
-                    }
-                    else if ($(this).scrollTop() < winA ) {
-                        console.log("nietus een!");
-
-                        $( ".outsider" ).removeClass( "pink" );
-                        $( "#intro" ).removeClass( "full-width" );
-                        $( ".logo" ).removeClass( "white" );
-                        $( ".navbar-default" ).removeClass( "white" );
-                        $( ".logo" ).removeClass( "smaller" );
-                        $( ".navbar-toggle" ).removeClass( "white" );
-
-                        setTimeout( function(){$( ".logos" ).removeClass( "remove" ); }  , 500 );
-                        setTimeout( function(){$( ".logos ul li" ).addClass( "active-li" ); }  , 1000 );
-                    }
-                }).on("resize", function(){ // If the user resizes the window
-                    winH = $(this).height(); // you'll need the new height value
-                });
-
-            });
-
-            jQuery(function($) {
-
-                var $win = $('.outsider');
-                var winB = $win.height() + $win.height();   // Get the window height.
-
-                $win.on("scroll", function () {
-                    if ($(this).scrollTop() > winB ) {
-                        console.log("tweede!");
-                        $( ".outsider" ).addClass( "blue" );
-                        $( ".logo" ).addClass( "white" );
-                        $( ".navbar-toggle" ).addClass( "white" );
-                        $( ".navbar-default" ).addClass( "white" );
-                        $( ".outsider" ).removeClass( "orange" );
-                    }
-                    else {
-                        console.log("nietus twee!");
-                    }
-                }).on("resize", function(){ // If the user resizes the window
-                    winH = $(this).height(); // you'll need the new height value
-                });
-
-            });
-
-            jQuery(function($) {
-
-                var $win = $('.outsider');
-                var winB = $win.height() + $win.height() + $win.height() ;   // Get the window height.
-
-                $win.on("scroll", function () {
-                    if ($(this).scrollTop() > winB ) {
-                        $( ".outsider" ).addClass( "orange" );
-                        console.log("derde!");
-                    }
-                    else {
-                        console.log("nietus drie!");
-                    }
-                }).on("resize", function(){ // If the user resizes the window
-                    winH = $(this).height(); // you'll need the new height value
-                });
-
-            });
 
         },
         finalize: function() {
@@ -237,9 +292,6 @@
             $('#main-content img').isInViewport(function (status) {
                 if (status ==='entered') {
                     $(this).addClass( "bigger" );
-                }
-                else {
-                    $(this).removeClass( "bigger" );
                 }
             })
 
@@ -273,14 +325,6 @@
                     $( ".logo" ).addClass( "smaller" );
                 }
             })
-
-            $('footer .address').isInViewport(function (status) {
-                if (status ==='entered') {
-                    $( ".logo" ).removeClass( "smaller" );
-                    $( ".navbar-default" ).addClass( "white" );
-                    $( ".navbar-toggle" ).addClass( "white" );
-                }
-            })
         },
         finalize: function() {
 
@@ -299,18 +343,13 @@
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "pink" );
                     $( ".outsider" ).addClass( "orange" );
-                    $( ".big-title-text" ).removeClass( "animation" );
                 }
             })
 
-            $('#main-content .checker').isInViewport(function (status) {
+            $('#big-title p').isInViewport(function (status) {
                 if (status ==='entered') {
-                    $( ".image-1" ).addClass( "active-image" );
-                    $( ".image-2" ).addClass( "active-image-two" );
-                }
-                else {
-                    $( ".image-1" ).removeClass( "active-image" );
-                    $( ".image-2" ).removeClass( "active-image-two" );
+                    $( ".outsider" ).removeClass( "orange" );
+                    $( ".outsider" ).addClass( "pink" );
                 }
             })
 
@@ -318,11 +357,6 @@
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
-                    //setTimeout( function(){$( ".big-title-text" ).addClass( "animation" ); }  , 1000 );
-                }
-                else {
-                    $( ".outsider" ).removeClass( "pink" );
-                    $( ".outsider" ).addClass( "orange" );
                 }
             })
 
@@ -354,7 +388,7 @@
                 }
             })
 
-            $('#intro-case-detail .checker, #content-image-left .title, #content-image-right .title').isInViewport(function (status) {
+            $('#intro-case-detail .checker, #content-image-left .checker, #content-image-right .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".logo" ).removeClass( "white" );
                     $( ".navbar-default" ).removeClass( "white" );

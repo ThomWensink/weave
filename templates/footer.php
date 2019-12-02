@@ -4,17 +4,12 @@
             <div class="col-xs-12">
                 <div class="text-box">
                     <h2>Bel ons op <a href="tel:0103070368">010-3070368</a><br />
-                    of mail ons <a href="mailto:info@weave.nl">info@weave.nl</a>
+                    mail ons <a href="mailto:info@weave.nl">info@weave.nl</a><br />
+                    of <a href="https://goo.gl/maps/2Spn6Qiy6XT5xdvdA" target="_blank">bezoek ons</a>
                     </h2>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="address hidden-xs hidden-sm">
-        <p>Goudsesingel 78 , 3011 KD Rotterdam</p>
-    </div>
-    <div class="address hidden-md hidden-lg">
-        <p>Goudsesingel 78 ,<br />3011 KD Rotterdam</p>
     </div>
     <a class="text-link" href="<?php bloginfo('url'); ?>/voorwaarden/">Algemene voorwaarden</a>
     <a target="_blank" href="https://www.linkedin.com/company/weave%C2%A0/" id="linkedin">
