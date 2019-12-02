@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-        <a href="">Zo doen we dat</a>
+        <a href="<?php bloginfo('url'); ?>/onze-werkwijze/">Zo doen we dat</a>
     </section>
 
     <?php get_template_part('templates/footer'); ?>
