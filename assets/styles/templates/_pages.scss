@@ -84,7 +84,7 @@
         #main-content {
             padding-bottom:200px;
             .content-container {
-                margin-bottom:110px;
+                margin-bottom:200px;
             }
         }
     }
@@ -110,6 +110,16 @@
             padding-left: 0;
         }
     }
+    .logo {
+        svg {
+            .logo-text {
+                fill:$color-white;
+            }
+        }
+    }
+}
+
+.error404 {
     .logo {
         svg {
             .logo-text {

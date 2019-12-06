@@ -1,20 +1,10 @@
-/*
-@import url("https://use.typekit.net/alb2jus.css");
-
-@font-face {
-    font-family: 'halcomtitle';
-    src: url('../fonts/the_northern_block_ltd_-_halcom-webfont.woff2') format('woff2'),
-         url('../fonts/the_northern_block_ltd_-_halcom-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-*/
-
 body,html {
     font-family: 'halcom', sans-serif;
     font-size: $base-font-size;
     line-height: $base-line-height;
     color:$color-primary;
+    direction: ltr;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -133,6 +123,8 @@ p a {
     height:100%;
     position:relative;
     @include transition(all .2s ease-out);
+    direction: ltr;
+    -webkit-overflow-scrolling: touch;
 }
 
 .parallex {
@@ -153,6 +145,8 @@ section, footer {
     scroll-snap-stop: always !important;
     overflow:hidden;
 }
+
+// These classes are called in snappy on homepage to animate the background
 
 .pink {
     background:$color-pink;

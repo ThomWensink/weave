@@ -81,6 +81,14 @@ footer {
         right:60px;
         bottom:60px;
     }
+    .checker {
+        position:absolute;
+        bottom:0;
+        height:1px;
+        left:0;
+        right:0;
+        width:100%;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -120,6 +128,9 @@ footer {
         #linkedin {
             right:15px;
             bottom:30px;
+        }
+        .checker {
+            bottom:15px;
         }
     }
 }

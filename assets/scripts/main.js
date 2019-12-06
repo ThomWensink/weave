@@ -18,18 +18,25 @@
     // All pages
     'common': {
         init: function() {
+            // Navbar toggle click
             $( ".navbar-toggle" ).click(function() {
                 $( ".collapsed" ).toggleClass( "active" );
                 $(this).toggleClass( "navbar-switch" );
                 $( ".logo" ).toggleClass( "white-logo" );
             });
+
+            // Fadein the navbar default
             $( ".navbar-default" ).addClass( "fadein" );
+
+            // Hide logo subtext on 175 scroll
             $(window).on('scroll', function() {
                 scrollPosition = $(this).scrollTop();
                 if (scrollPosition >= 175) {
                     $( ".logo" ).addClass( "smaller" );
                 }
             });
+
+            // Add logo subtext on scroll top
 
             $(window).on('scroll', function() {
                 scrollPosition = $(this).scrollTop();
@@ -41,13 +48,15 @@
                 }
             });
 
+            // Make sure the logo becomes white when over footer
+
             $('footer .text-link').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".logo" ).removeClass( "smaller" );
                     $( ".navbar-default" ).addClass( "white" );
                     $( ".navbar-toggle" ).addClass( "white" );
                 }
-            })
+            });
             // LazyLoad
             // lazy loads elements with default selector: `.lozad`
             const observer = lozad('.lozad', {
@@ -57,6 +66,8 @@
                     };
                 },
             });
+
+            // Is in viewport function, used below
             var isInViewport = function (elem) {
                 var distance = elem.getBoundingClientRect();
                 return (
@@ -76,15 +87,15 @@
         init: function() {
             $( "#hero" ).addClass( "fadein-hero" );
 
-            // Hero fadeins
+            // Hero fadeins, very crude how its setup but it works
             $( "#hero h1 span.static" ).addClass( "fadein" );
-            $( "#hero h1 span.static" ).addClass( "color-change-orange" );
+            setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-orange" ); }  , 1000 );
             setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-orange" ); }  , 3500 );
             setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-pink" ); }  , 3500 );
             setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-pink" ); }  , 7500 );
             setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-orange" ); }  , 7500 );
 
-            setInterval(function(){loop()}, 8000);
+            setInterval(function(){loop();}, 8000);
             function loop(){
                 setTimeout( function(){$( "#hero h1 span.static" ).removeClass( "color-change-orange" ); }  , 3300 );
                 setTimeout( function(){$( "#hero h1 span.static" ).addClass( "color-change-pink" ); }  , 3300 );
@@ -109,7 +120,7 @@
             setTimeout( function(){$( "#hero h1 span.third" ).addClass( "fadeout" ); }  , 12300 );
             setTimeout( function(){$( "#hero h1 span.third" ).removeClass( "fadeout" ); }  , 12800 );
 
-            setInterval(function(){loopsecond()}, 12000);
+            setInterval(function(){loopsecond();}, 12000);
 
             function loopsecond(){
                 setTimeout( function(){$( "#hero h1 span.first" ).addClass( "fadein" ); }  , 300 );
@@ -130,7 +141,7 @@
                 setTimeout( function(){$( "#hero h1 span.third" ).removeClass( "fadeout" ); }  , 12800 );
             }
 
-
+            // Different scripts are being called (due to snappy scroll) for desktop and mobile. If statement below.
 
             var isMobile = /Android|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
@@ -138,11 +149,11 @@
                 if(!isMobile) {
                     // DESKTOP
 
-                    // Full page scrolling
+                    // Full page scrolling. Every win.height(); is a full 100vh section
                     var $win = $('.outsider');
 
                     $win.scroll(function () {
-                        if ($win.scrollTop() == 0) {
+                        if ($win.scrollTop() === 0) {
                             $( "#intro" ).removeClass( "active-intro" );
                             $( "#hero" ).removeClass( "inactive-hero" );
                             $( ".logo" ).removeClass( "white" );
@@ -153,7 +164,7 @@
                         else {
                             $( "#intro" ).addClass( "active-intro" );
                             $( "#hero" ).addClass( "inactive-hero" );
-                            $( ".outsider" ).addClass( "pink" );
+                            setTimeout( function(){$( ".outsider" ).addClass( "pink" ); }  , 1000 );
                             $( ".logo" ).addClass( "white" );
                             $( ".navbar-toggle" ).addClass( "white" );
                             $( ".navbar-default" ).addClass( "white" );
@@ -170,9 +181,6 @@
                             if ($(this).scrollTop() > winA ) {
                                 $( ".outsider" ).removeClass( "blue" );
 
-                            }
-                            else if ($(this).scrollTop() < winA ) {
-                                //$( ".outsider" ).removeClass( "pink" );
                             }
                         }).on("resize", function(){ // If the user resizes the window
                             winH = $(this).height(); // you'll need the new height value
@@ -223,7 +231,7 @@
                         if (status ==='entered') {
                             $( ".outsider" ).addClass( "pink" );
                         }
-                    })
+                    });
 
                     $('#hero h1').isInViewport(function (status) {
                         if (status ==='entered') {
@@ -232,7 +240,7 @@
                             $( ".navbar-toggle" ).removeClass( "white" );
                             $( ".navbar-default" ).removeClass( "white" );
                         }
-                    })
+                    });
 
                     $('#intro .logos').isInViewport(function (status) {
                         if (status ==='entered') {
@@ -241,27 +249,27 @@
                             $( ".navbar-toggle" ).addClass( "white" );
                             $( ".navbar-default" ).addClass( "white" );
                         }
-                    })
+                    });
 
                     $('#info .floating-image').isInViewport(function (status) {
                         if (status ==='entered') {
                             $( ".outsider" ).addClass( "pink" );
                             $( ".outsider" ).removeClass( "blue" );
                         }
-                    })
+                    });
 
                     $('#case-overview h6').isInViewport(function (status) {
                         if (status ==='entered') {
                             $( ".outsider" ).addClass( "blue" );
                             $( ".outsider" ).removeClass( "orange" );
                         }
-                    })
+                    });
 
                     $('#cta a').isInViewport(function (status) {
                         if (status ==='entered') {
                             $( ".outsider" ).addClass( "orange" );
                         }
-                    })
+                    });
 
                     // MOBILE END
                 }
@@ -287,15 +295,15 @@
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
                 }
-            })
+            });
 
             $('#main-content img').isInViewport(function (status) {
                 if (status ==='entered') {
                     $(this).addClass( "bigger" );
                 }
-            })
+            });
 
-            $('#more-info .title').isInViewport(function (status) {
+            $('#more-info .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "pink" );
                     $( ".outsider" ).removeClass( "white" );
@@ -304,9 +312,9 @@
                     $( ".navbar-default" ).addClass( "white" );
                     $( ".navbar-toggle" ).addClass( "white" );
                 }
-            })
+            });
 
-            $('#team .vacatures').isInViewport(function (status) {
+            $('#team ul li').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "white" );
@@ -315,7 +323,7 @@
                     $( ".navbar-toggle" ).removeClass( "white" );
                     $( ".logo" ).addClass( "smaller" );
                 }
-            })
+            });
 
             $('#team ul .full a').isInViewport(function (status) {
                 if (status ==='entered') {
@@ -324,7 +332,8 @@
                     $( ".navbar-toggle" ).removeClass( "white" );
                     $( ".logo" ).addClass( "smaller" );
                 }
-            })
+            });
+
         },
         finalize: function() {
 
@@ -344,21 +353,21 @@
                     $( ".outsider" ).removeClass( "pink" );
                     $( ".outsider" ).addClass( "orange" );
                 }
-            })
+            });
 
             $('#big-title p').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
                 }
-            })
+            });
 
             $('#big-title .checker').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".outsider" ).removeClass( "orange" );
                     $( ".outsider" ).addClass( "pink" );
                 }
-            })
+            });
 
             $('footer .address').isInViewport(function (status) {
                 if (status ==='entered') {
@@ -366,7 +375,7 @@
                     $( ".navbar-default" ).addClass( "white" );
                     $( ".navbar-toggle" ).addClass( "white" );
                 }
-            })
+            });
         },
         finalize: function() {
 
@@ -386,35 +395,11 @@
                     $( ".navbar-default" ).addClass( "white" );
                     $( ".navbar-toggle" ).addClass( "white" );
                 }
-            })
+            });
 
-            $('#intro-case-detail .checker, #content-image-left .checker, #content-image-right .checker').isInViewport(function (status) {
-                if (status ==='entered') {
-                    $( ".logo" ).removeClass( "white" );
-                    $( ".navbar-default" ).removeClass( "white" );
-                    $( ".navbar-toggle" ).removeClass( "white" );
-                }
-            })
-
-            $('#slider .checker').isInViewport(function (status) {
+            $('#case-detail-hero').isInViewport(function (status) {
                 if (status ==='entered') {
                     $( ".logo" ).addClass( "white" );
-                    $( ".navbar-default" ).addClass( "white" );
-                    $( ".navbar-toggle" ).addClass( "white" );
-                }
-            })
-
-            $('#video').isInViewport(function (status) {
-                if (status ==='entered') {
-                    $( ".logo" ).removeClass( "white" );
-                    $( ".navbar-default" ).removeClass( "white" );
-                    $( ".navbar-toggle" ).removeClass( "white" );
-                }
-            })
-
-            $('footer .address').isInViewport(function (status) {
-                if (status ==='entered') {
-                    $( ".logo" ).removeClass( "smaller" );
                     $( ".navbar-default" ).addClass( "white" );
                     $( ".navbar-toggle" ).addClass( "white" );
                 }
@@ -423,7 +408,32 @@
                     $( ".navbar-default" ).removeClass( "white" );
                     $( ".navbar-toggle" ).removeClass( "white" );
                 }
-            })
+            });
+
+            $('#slider .checker').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".logo" ).addClass( "white" );
+                    $( ".navbar-default" ).addClass( "white" );
+                    $( ".navbar-toggle" ).addClass( "white" );
+                }
+                else {
+                    $( ".logo" ).removeClass( "white" );
+                    $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
+                }
+            });
+
+            $('footer .checker').isInViewport(function (status) {
+                if (status ==='entered') {
+                    $( ".navbar-default" ).addClass( "white" );
+                    $( ".navbar-toggle" ).addClass( "white" );
+                }
+                else {
+                    $( ".logo" ).removeClass( "white" );
+                    $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
+                }
+            });
         },
         finalize: function() {
             $('.slider').slick({
@@ -456,6 +466,17 @@
             $( ".maintitle" ).addClass( "active-titel" );
             $( "#case-intro p:first-of-type" ).addClass( "active-text" );
             $( "#cases ul li" ).addClass( "active-first" );
+
+            $('footer a').isInViewport(function (status) {
+                if (status ==='entered') {
+
+                }
+                else {
+                    $( ".logo" ).removeClass( "white" );
+                    $( ".navbar-default" ).removeClass( "white" );
+                    $( ".navbar-toggle" ).removeClass( "white" );
+                }
+            });
         },
         finalize: function() {
 
